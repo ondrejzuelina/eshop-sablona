@@ -1,11 +1,16 @@
 <?php
 echo "<pre>";
-require_once("setup/connect.php");
+$connection = mysqli_connect("localhost", "root", "", "test");
+    if(!$connection){
+        die("Connection in to database error").mysqli_connect_error();
+    }
 
-$db = mysqli_query($connection, "SELECT * FROM product_item");
+$db = mysqli_query($connection, "SELECT * FROM test_table");
 
 while($item = mysqli_fetch_array($db)){
-    print_r($item["imagelist"]);
+    echo$image_replace = '"' . str_replace('"', "'", $item["imagelist"]) . '"' . ""."<br>";
+    $image = json_decode($image_replace,true);
+    echo $image[0];
     echo "<br>";
 }
 
