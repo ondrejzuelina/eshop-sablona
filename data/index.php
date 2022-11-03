@@ -2,7 +2,7 @@
 
 require_once("simple-html-dom.php");
 
-$filename = "";
+$fileName = "zsruks_pc_notebooky";
 
 $app_file = array(
 "input" => "data/xml/".$fileName.".xml",
@@ -159,7 +159,7 @@ ob_start();
 
 $app_sql_column = implode(", ", $app_data_list_header);
 
-echo "INSERT INTO test ({$app_sql_column}) VALUES";
+echo "INSERT INTO product_item ({$app_sql_column}) VALUES";
 //echo "<br><br>";
 
 for($i = 0; $i <= $app_data_list__inc; $i++) {
