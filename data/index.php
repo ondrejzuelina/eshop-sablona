@@ -2,10 +2,11 @@
 
 require_once("simple-html-dom.php");
 
+$filename = "";
 
 $app_file = array(
-"input" => "data/xml/test.xml",
-"output" => "data/sql/test.sql"
+"input" => "data/xml/".$fileName.".xml",
+"output" => "data/sql/".$fileName.".sql"
 );
 
 $app_file_buffer = array();
