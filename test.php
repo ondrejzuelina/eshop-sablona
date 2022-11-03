@@ -10,3 +10,4 @@ while($item = mysqli_fetch_array($db)){
 }
 
 echo "</pre>";
+?>
