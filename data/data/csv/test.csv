@@ -1,0 +1,8 @@
+INSERT INTO test (proid, imagelist) VALUES<br />
+<b>Warning</b>:  Undefined variable $app_data_list__inc in <b>C:\xampp\htdocs\eshop-sablona\data\index2.php</b> on line <b>32</b><br />
+<br />
+<b>Warning</b>:  Undefined variable $app_data_list__item_children_inc in <b>C:\xampp\htdocs\eshop-sablona\data\index2.php</b> on line <b>40</b><br />
+<br />
+<b>Warning</b>:  Undefined variable $app_data_list__item_children_inc in <b>C:\xampp\htdocs\eshop-sablona\data\index2.php</b> on line <b>40</b><br />
+("1483516","          <url>https://c.edsystem.cz/IMGCACHE/_1483/1483516_0a_3.jpg</url>        ",),<br />
+<b>Warning</b>:  Undefined variable $app_data_list__inc in <b>C:\xampp\htdocs\eshop-sablona\data\index2.php</b> on line <b>32</b><br />
