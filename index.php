@@ -411,7 +411,7 @@ $sql_query = ____app_sql_query("
                             </div>
                             <!-- Product actions-->
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">View options</a></div>
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="view_item.php?id=<?php echo $response_data["id"]; ?>">View options</a></div>
                             </div>
                         </div>
                     </div>
