@@ -8,7 +8,7 @@ function ____app_sql_query($data) {
     }
     
 $REMOTE_HOSTNAME = "";
-$LOCAL_HOSTNAME = "http://localhost/cc-eshop/";
+$LOCAL_HOSTNAME = "http://localhost/eshop-sablona/";
 
 $REMOTE_STORAGE_SERVER = "";
 // $LOCAL_STORAGE_SERVER = "http://localhost/app-data-management/";
@@ -23,7 +23,7 @@ $localhost_list = array(
 if(!in_array($_SERVER["REMOTE_ADDR"], $localhost_list))
 {
 
-    define("APP_PATH", "../app/");
+    define("APP_PATH", "../eshop-sablona/");
     define("APP_RES_PATH", "{$REMOTE_HOSTNAME}");
     define("APP_INCLUDE_PATH", "");
     define("APP_STORAGE_PATH", "{$REMOTE_STORAGE_SERVER}");
@@ -32,7 +32,7 @@ if(!in_array($_SERVER["REMOTE_ADDR"], $localhost_list))
 
 else {
 
-    define("APP_PATH", "../app/");
+    define("APP_PATH", "../eshop-sablona/");
     define("APP_RES_PATH", "{$LOCAL_HOSTNAME}");
     define("APP_INCLUDE_PATH", "");
     define("APP_STORAGE_PATH", "{$LOCAL_STORAGE_SERVER}");
@@ -167,7 +167,7 @@ $sql_query = ____app_sql_query("
         <!-- Bootstrap icons-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet" />
+        <link href="css/styles.css" rel="stylesheet" type="text/css" />
     </head>
     <body>
         <!-- Navigation-->
@@ -421,54 +421,54 @@ $sql_query = ____app_sql_query("
                 </div>
             </div>
             <container class="app_pagination_page">
-                <p class="app_pagination_set_table pagination">
+                <ul class="pagination">
 
                     <?php if( ($app_pagination["page_number"] >= 2) ): ?>
-                    <a href="<?php echo APP_RES_PATH; ?><?php echo APP_PAGINATION_URL ?><?php echo $app_pagination["previous_page"]; ?>">previous</a>		
+                    <li class="page-item"><a href="<?php echo APP_RES_PATH; ?><?php echo APP_PAGINATION_URL ?><?php echo $app_pagination["previous_page"]; ?>">previous</a>	</li>	
                     <?php endif; ?>	
 
 
                     <?php if( !($app_pagination["page_number"] == 1) && isset($_GET["page_number"]) ): ?>
-                    <a href="<?php echo APP_RES_PATH; ?><?php echo APP_PAGINATION_URL ?>1">1</a>		
+                    <li class="page-item"><a href="<?php echo APP_RES_PATH; ?><?php echo APP_PAGINATION_URL ?>1">1</a></li>		
                     <?php endif; ?>
 
                     <?php if( !($app_pagination["page_number"] <= 4) ): ?>
-                    <a>...</a>	
+                    <li class="page-item"><a>...</a></li>	
                     <?php endif; ?>
 
 
                     <?php if( ( ($app_pagination["page_number"] - 2) > 0) && !(($app_pagination["page_number"] - 2) == 1) ): ?>
-                    <a href="<?php echo APP_RES_PATH; ?><?php echo APP_PAGINATION_URL ?><?php echo $app_pagination["page_number"]- 2; ?>"><?php echo $app_pagination["page_number"] - 2; ?></a>	
+                    <a href="<?php echo APP_RES_PATH; ?><?php echo APP_PAGINATION_URL ?><?php echo $app_pagination["page_number"]- 2; ?>"><?php echo $app_pagination["page_number"] - 2; ?></a></li>	
                     <?php endif ?>
 
                     <?php if( (($app_pagination["page_number"] - 1) > 0) && !(($app_pagination["page_number"] - 1) == 1) ): ?>
-                    <a href="<?php echo APP_RES_PATH; ?><?php echo APP_PAGINATION_URL ?><?php echo $app_pagination["page_number"] - 1; ?>"><?php echo $app_pagination["page_number"] - 1; ?></a>	
+                    <li class="page-item"><a href="<?php echo APP_RES_PATH; ?><?php echo APP_PAGINATION_URL ?><?php echo $app_pagination["page_number"] - 1; ?>"><?php echo $app_pagination["page_number"] - 1; ?></a></li>	
                     <?php endif ?>
 
 
-                    <a class="app_pagination_subset_item____active" href="<?php echo APP_RES_PATH; ?><?php echo APP_PAGINATION_URL ?><?php echo $app_pagination["page_number"]; ?>"><?php echo $app_pagination["page_number"]; ?></a>
+                    <li class="page-item"><a class="app_pagination_subset_item____active" href="<?php echo APP_RES_PATH; ?><?php echo APP_PAGINATION_URL ?><?php echo $app_pagination["page_number"]; ?>"><?php echo $app_pagination["page_number"]; ?></a></li>
 
 
                     <?php if( !($app_pagination["page_number"] >= $app_pagination["total_number_of_pages"] - 1) ): ?>
 
                     <?php if( !( ($app_pagination["page_number"] + 1) >= ($app_pagination["total_number_of_pages"] - 1)) ): ?>
-                    <a href="<?php echo APP_RES_PATH; ?><?php echo APP_PAGINATION_URL ?><?php echo $app_pagination["page_number"] + 1; ?>"><?php echo $app_pagination["page_number"] + 1; ?></a>	
+                    <li class="page-item"><a href="<?php echo APP_RES_PATH; ?><?php echo APP_PAGINATION_URL ?><?php echo $app_pagination["page_number"] + 1; ?>"><?php echo $app_pagination["page_number"] + 1; ?></a></li>	
                     <?php endif; ?>
 
                     <?php if( !( ($app_pagination["page_number"] + 2) >= ($app_pagination["total_number_of_pages"] - 1)) ): ?>
-                    <a href="<?php echo APP_RES_PATH; ?><?php echo APP_PAGINATION_URL ?><?php echo $app_pagination["page_number"] + 2; ?>"><?php echo $app_pagination["page_number"] + 2; ?></a>	
+                    <li class="page-item"><a href="<?php echo APP_RES_PATH; ?><?php echo APP_PAGINATION_URL ?><?php echo $app_pagination["page_number"] + 2; ?>"><?php echo $app_pagination["page_number"] + 2; ?></a></li>	
                     <?php endif; ?>
 
                     <?php if( !( ($app_pagination["page_number"] + 3) >= ($app_pagination["total_number_of_pages"] - 1)) ): ?>
-                    <a href="<?php echo APP_RES_PATH; ?><?php echo APP_PAGINATION_URL ?><?php echo $app_pagination["page_number"] + 3; ?>"><?php echo $app_pagination["page_number"] + 3; ?></a>	
+                    <li class="page-item"><a href="<?php echo APP_RES_PATH; ?><?php echo APP_PAGINATION_URL ?><?php echo $app_pagination["page_number"] + 3; ?>"><?php echo $app_pagination["page_number"] + 3; ?></a></li>	
                     <?php endif; ?>
 
                     <?php if( !( ($app_pagination["page_number"] + 4) >= ($app_pagination["total_number_of_pages"] - 1)) ): ?>
-                    <a href="<?php echo APP_RES_PATH; ?><?php echo APP_PAGINATION_URL ?><?php echo $app_pagination["page_number"] + 4; ?>"><?php echo $app_pagination["page_number"] + 4; ?></a>	
+                    <li class="page-item"><a href="<?php echo APP_RES_PATH; ?><?php echo APP_PAGINATION_URL ?><?php echo $app_pagination["page_number"] + 4; ?>"><?php echo $app_pagination["page_number"] + 4; ?></a></li>	
                     <?php endif; ?>
 
                     <?php if( ( ($app_pagination["page_number"] + 1) == ($app_pagination["total_number_of_pages"] - 1)) ): ?>
-                    <a href="<?php echo APP_RES_PATH; ?><?php echo APP_PAGINATION_URL ?><?php echo $app_pagination["page_number"] + 1; ?>"><?php echo $app_pagination["page_number"] + 1; ?></a>	
+                    <li class="page-item"><a href="<?php echo APP_RES_PATH; ?><?php echo APP_PAGINATION_URL ?><?php echo $app_pagination["page_number"] + 1; ?>"><?php echo $app_pagination["page_number"] + 1; ?></a></li>	
                     <?php endif; ?>
 
 
@@ -476,20 +476,20 @@ $sql_query = ____app_sql_query("
 
 
                     <?php if( !($app_pagination["page_number"] >= $app_pagination["total_number_of_pages"] - 2) ): ?>
-                    <a>...</a>	
+                    <li class="page-item"><a>...</a></li>	
                     <?php endif; ?>
 
 
                     <?php if( !($app_pagination["page_number"] == $app_pagination["total_number_of_pages"]) ): ?>		
-                    <a href="<?php echo APP_RES_PATH; ?><?php echo APP_PAGINATION_URL ?><?php echo $app_pagination["total_number_of_pages"] ?>"><?php echo $app_pagination["total_number_of_pages"]; ?></a>		
+                    <li><a href="<?php echo APP_RES_PATH; ?><?php echo APP_PAGINATION_URL ?><?php echo $app_pagination["total_number_of_pages"] ?>"><?php echo $app_pagination["total_number_of_pages"]; ?></a></li>	
                     <?php endif; ?>
 
 
                     <?php if( !($app_pagination["page_number"] >= $app_pagination["total_number_of_pages"] - 1) ): ?>
-                    <a href="<?php echo APP_RES_PATH; ?><?php echo APP_PAGINATION_URL ?><?php echo $app_pagination["next_page"] ?>">next</a>		
+                    <li class="page-item"><a href="<?php echo APP_RES_PATH; ?><?php echo APP_PAGINATION_URL ?><?php echo $app_pagination["next_page"] ?>" class="page-item">next</a></li>
                     <?php endif; ?>
-
-                </p>
+                
+                </ul>
 
             </container>
         </section>
