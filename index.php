@@ -317,14 +317,45 @@ $sql_query = ____app_sql_query("
             </div>
         </nav>
         <!-- Header-->
-        <header class="bg-dark py-5">
-            <div class="container px-4 px-lg-5 my-5">
-                <div class="text-center text-white">
-                    <h1 class="display-4 fw-bolder">Shop in style</h1>
-                    <p class="lead fw-normal text-white-50 mb-0">With this shop hompeage template</p>
-                </div>
+        <!-- Carousel -->
+            <div id="demo" class="carousel slide" data-bs-ride="carousel">
+
+            <!-- Indicators/dots -->
+            <div class="carousel-indicators">
+            <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+            <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+            <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+            <button type="button" data-bs-target="#demo" data-bs-slide-to="3"></button>
+            <button type="button" data-bs-target="#demo" data-bs-slide-to="4"></button>
             </div>
-        </header>
+
+            <!-- The slideshow/carousel -->
+            <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="images/acer_2022-10_omv_hpcz_2022-11-02-12-07-25.jpg" alt="Los Angeles" class="d-block w-100">
+            </div>
+            <div class="carousel-item">
+                <img src="images/dell_2022-11_vypredaj_hpcz_2022-11-02-14-03-57.jpg" alt="Chicago" class="d-block w-100">
+            </div>
+            <div class="carousel-item">
+                <img src="images/HPe FlexOffers BANNER1_2022-10-24-14-17-42.jpg" alt="New York" class="d-block w-100">
+            </div>
+            <div class="carousel-item">
+                <img src="images/MS - Windows Server b cz_2022-11-02-14-18-08.jpg" alt="New York" class="d-block w-100">
+            </div>
+            <div class="carousel-item">
+                <img src="images/Samsung - Gamingová sezóna začíná cz banner_2022-11-02-11-12-59.jpg" alt="New York" class="d-block w-100">
+            </div>
+            </div>
+
+            <!-- Left and right controls/icons -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+            </button>
+            </div>
         <!-- Section-->
         <section class="py-5">
             <div class="container px-4 px-lg-5 mt-5">
