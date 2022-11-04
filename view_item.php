@@ -1,3 +1,8 @@
+<?php 
+
+require_once("setup/connect.php");
+
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
