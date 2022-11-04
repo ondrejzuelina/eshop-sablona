@@ -11286,3 +11286,13 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+
+/* ------user-style----- */
+
+.user-image{
+  max-height: 250px;
+}
+
+.title-name{
+  height: 110px;
+}

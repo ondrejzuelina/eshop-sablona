@@ -270,25 +270,24 @@ $sql_query = ____app_sql_query("
                         $response_data = array(
                         "index_id" => $index_id++,
                         "id" => $row["proid"],	
-                        "title" => substr($row["name"],0,50),
+                        "title" => substr($row["name"],0,50)."...",
                         "quantity" => $row["onstocktext"]." Ks",
                         "price" => number_format($row["enduserprice"],2,".",",")." Kč",
-                        "image" => json_decode(htmlspecialchars_decode($row["imagelist"]))
                         );
         
                         $data = $row["imagelist"];
-                        $image_replace = str_replace('"','"', $data);
-                        echo $image = json_decode($image_replace, true);
+                        $image_replace = str_replace("'",'"', $data);
+                        $image = json_decode($image_replace, true);
                     ?>
                     <div class="col mb-5">
                         <div class="card h-100">
                             <!-- Product image-->
-                            <a href="view_item.php?id=<?php echo $response_data["id"]; ?>"><img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="<?php echo $response_data["title"]; ?>" /></a>
+                            <a href="view_item.php?id=<?php echo $response_data["id"]; ?>"><img class="card-img-top user-image" src="<?php echo $image[0]; ?>" alt="<?php echo $response_data["title"]; ?>" /></a>
                             <!-- Product details-->
                             <div class="card-body p-4">
                                 <div class="text-center">
                                     <!-- Product name-->
-                                    <h5 class="fw-bolder"><?php echo $response_data["title"]; ?></h5>
+                                    <h5 class="fw-bolder title-name"><?php echo $response_data["title"]; ?></h5>
                                     <!-- Product price-->
                                     <?php echo $response_data["price"]; ?>
                                 </div>
