@@ -24,16 +24,21 @@ require_once("setup/connect.php");
         <!-- Product section-->
         <section class="py-5">
             <div class="container px-4 px-lg-5 my-5">
+                <?php
+                $result = mysqli_query($connection, "SELECT * FROM product_item WHERE proid = '".$_GET["id"]."'");
+                foreach($result as $row){
+                    $image_decode = str_replace("'",'"', $row["imagelist"]);
+                    $image = json_decode($image_decode, true);                ?>
                 <div class="row gx-4 gx-lg-5 align-items-center">
-                    <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="https://dummyimage.com/600x700/dee2e6/6c757d.jpg" alt="..." /></div>
+                    <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="<?php echo $image[0]; ?>" alt="<?php echo $row["name"]; ?>" /></div>
                     <div class="col-md-6">
-                        <div class="small mb-1">SKU: BST-498</div>
-                        <h1 class="display-5 fw-bolder">Shop item template</h1>
+                        <div class="small mb-1"><?php echo $row["partnumber"]; ?></div>
+                        <h1 class="display-5 fw-bolder"><?php echo $row["name"]; ?></h1>
                         <div class="fs-5 mb-5">
-                            <span class="text-decoration-line-through">$45.00</span>
-                            <span>$40.00</span>
+                            <span class="text-decoration-line-through"><?php echo number_format($row["enduserprice"], 2,".",","); ?> Kč</span>
+                            <!-- <span>$40.00</span> -->
                         </div>
-                        <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium at dolorem quidem modi. Nam sequi consequatur obcaecati excepturi alias magni, accusamus eius blanditiis delectus ipsam minima ea iste laborum vero?</p>
+                        <p class="lead"><?php echo $row["descriptionshort"]; ?></p>
                         <div class="d-flex">
                             <input class="form-control text-center me-3" id="inputQuantity" type="num" value="1" style="max-width: 3rem" />
                             <button class="btn btn-outline-dark flex-shrink-0" type="button">
@@ -43,6 +48,9 @@ require_once("setup/connect.php");
                         </div>
                     </div>
                 </div>
+                <?php
+                }
+                ?>
             </div>
         </section>
         <!-- Related items section-->
