@@ -1,21 +1,17 @@
 <?php
 
-echo "<pre>";
 require_once("setup/connect.php");
 
 
-$result = mysqli_query($connection, "SELECT * FROM product_item WHERE proid = 1517392");
+$result = mysqli_query($connection, "SELECT * FROM product_item WHERE proid = 1483516");
     if(!$result){
         die("Print data from database error");
     }
 
 
 foreach($result as $row){
-    $test = $row["imagelist"];
-    
-    $input_data = array($test);
-
-    
+    $imageList = $row["imagelist"];
+    $title = $row["name"];
 }
 
 function printImage($image){
@@ -28,7 +24,7 @@ function printImage($image){
 
     foreach($image as $key => $value){
         if(is_array($value)){
-            printValues($value);
+            print_r($value);
         }else{
             $values[] =  $value;
             $count++;
@@ -39,8 +35,25 @@ function printImage($image){
 
 }
 
-echo $json = str_replace('"',"'", $test);
-$image = json_decode($json, true);
-echo $image[0];
 
-echo "</pre>";
+$image_replace = str_replace("'",'"', $imageList);
+$image = json_decode($image_replace, true);
+
+
+$result = printImage($image);
+
+?>
+<h1><?php echo $result["total"]; ?></h1>
+<div>
+    <img src="<?php echo $image[0]; ?>" alt="<?php echo $title; ?>">
+</div>
+<div style="display: flex; width: 40%;">
+<?php
+for($i = 0; $i < $result["total"]; $i++){
+?>
+<img style="width: 100%;" src="<?php echo $result["values"][$i]; ?>" alt="<?php echo $title." obrazek".$i; ?>">
+
+<?php
+}
+?>
+</div><br><br>
